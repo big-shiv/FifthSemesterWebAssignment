@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #abc{
+          border: 5px solid red;
+          width: 200px;
+          height: 200px;
+          background-color:white;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="abc">
+<button onclick="ck()"> click me</button>
+<p id="hg"></p>
+    </div>
+    <script>
+        var a=6;
+        var b=9;
+        function add(a,b)
+        {
+             return  a+b;
+        }
+        function sub (a,b) { 
+             return b-a;
+         }
+
+       var res1=  add(a,b);
+        var res2=  sub(a,b);
+        document.write("addition"+res1+"<br>");
+        document.write("subtraction"+res2);
+
+         function  ck() { 
+             document.getElementById("hg").innerHTML="hello you are the click the button ";
+          }
+       
+
+    </script>
+</body>
+</html>
