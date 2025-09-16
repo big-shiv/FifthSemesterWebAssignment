@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Number Table </title>
+	<style>
+		body { font-family: Arial, sans-serif; margin: 40px; }
+		table { border-collapse: collapse; width: 50%; margin-top: 20px; }
+		th, td { border: 1px solid #333; padding: 8px 12px; text-align: center; }
+		th { background: #eee; }
+		.controls { margin-bottom: 20px; }
+	</style>
+</head>
+<body>
+	<h2>Table of Numbers </h2>
+	<div class="controls">
+		<label>First Number: <input type="number" id="num1"></label>
+		<label>Second Number: <input type="number" id="num2"></label>
+		<select id="type">
+			<option value="all">All</option>
+			<option value="even">Even</option>
+			<option value="odd">Odd</option>
+		</select>
+		<button onclick="generateTable()">Generate Table</button>
+	</div>
+	<div id="result"></div>
+	<script>
+		function generateTable() {
+			let n1 = parseInt(document.getElementById('num1').value);
+			let n2 = parseInt(document.getElementById('num2').value);
+			let type = document.getElementById('type').value;
+			let result = document.getElementById('result');
+			if (isNaN(n1) || isNaN(n2)) {
+				result.innerHTML = '<span style="color:red">Please enter both numbers.</span>';
+				return;
+			}
+			let start = Math.min(n1, n2);
+			let end = Math.max(n1, n2);
+			let evenNumbers = [];
+			let oddNumbers = [];
+			for (let i = start + 1; i < end; i++) {
+				if (i % 2 === 0) {
+					evenNumbers.push(i);
+				} else {
+					oddNumbers.push(i);
+				}
+			}
+			let rows = '';
+			if (type === 'even') {
+				rows += <tr><th>Even</th></tr>;
+				evenNumbers.forEach(num => {
+					rows += <tr><td>${num}</td></tr>;
+				});
+			} else if (type === 'odd') {
+				rows += <tr><th>Odd</th></tr>;
+				oddNumbers.forEach(num => {
+					rows += <tr><td>${num}</td></tr>;
+				});
+			} else {
+				rows += <tr><th>Even</th></tr>;
+				evenNumbers.forEach(num => {
+					rows += <tr><td>${num}</td></tr>;
+				});
+				rows += <tr><th>Odd</th></tr>;
+				oddNumbers.forEach(num => {
+					rows += <tr><td>${num}</td></tr>;
+				});
+			}
+			if ((type === 'even' && evenNumbers.length === 0) || (type === 'odd' && oddNumbers.length === 0) || (type === 'all' && evenNumbers.length === 0 && oddNumbers.length === 0)) {
+				result.innerHTML = '<span style="color:red">No numbers found in range.</span>';
+				return;
+			}
+			result.innerHTML = <table>${rows}</table>;
+		}
+	</script>
+</body>
+</html>
