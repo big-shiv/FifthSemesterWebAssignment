@@ -6,14 +6,15 @@
     <title>Document</title>
 </head>
 <body>
+
+    <p class="id"></p>
     <script>
-        let x = 10;
-        document.write(x);
-        var x = 20;
-        document.write("<br>" + x); 
-        let hello = () => {
-           return "python sucks";
+        function multiply(a, b=1) {
+            return a * b;
         }
+        document.write(multiply(5));
+         
+       
     </script>
 </body>
 </html>
