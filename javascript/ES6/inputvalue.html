@@ -9,14 +9,14 @@
     <input type="text" id="Adi" placeholder="Enter your name">
  
     <script>
-       let value = inputfield.value;
         function abes(){
 
             let inputfield =document.getElementById("Adi");
             let value = inputfield.value;
             document.getElementById("Adi").innerHTML = value;
+            document.getElementById("Adi").value = value;
         }
-</script>
+    </script>
     <button onclick="abes()">Click Me</button>
 </body>
 </html>
