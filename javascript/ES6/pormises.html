@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+     let pr= new Promise((resolve,reject)=>{
+        const password="hello@12345";
+        if(password.length>8)
+     {
+        resolve("password length is ok");
+     }
+     else 
+     {
+        reject("password length is short ");
+     }
+     })
+
+     pr.then((msg)=>{
+        console.log(msg);
+        
+     })
+
+     pr.catch((err)=>{
+        console.log(err);
+        
+     })
+    </script>
+</body>
+</html>

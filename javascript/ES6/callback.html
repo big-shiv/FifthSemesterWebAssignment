@@ -6,15 +6,30 @@
     <title>Document</title>
 </head>
 <body>
-   <script>
-    function sum(a,b)
-    {
-        console.log(a+b);
-    }
-    function cal(a,b,sumcallback){
-        sumcallback(a,b);
-    }
-    cal(10,20,sum);
-   </script> 
+    <script>
+        function getdata(dataid)
+        {
+            setTimeout(() => {
+                console.log("data " ,dataid);
+            }, 2000);
+        }
+       getdata(1,()=>{
+        getdata(2,()=>{
+            getdata(3,()=>{
+                getdata(4,()=>{
+                    getdata(5);
+                    
+                })
+            })
+        })  
+       })
+        // console.log("demo1");
+        // console.log("demo2");
+        // setTimeout(() => {
+        //     console.log("hello");
+        // }, 5000);
+        // console.log("demo3");
+        // console.log("demo4");
+    </script>
 </body>
 </html>
